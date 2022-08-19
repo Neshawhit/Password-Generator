@@ -4,23 +4,27 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword() {
   // create strings for each set of characters DONE
   //prompt user 'how many characters?' DONE
-  //validate the user input
-  // prompt the user for what set of characters they want
+  //validate the user input DONE
+  // prompt the user for what set of characters they want DONE
   //validate the user selected at least one set of charactersgit 
   //randomly generate password and then retrun generated password
   var lower = 'abcdefghijklmnopqrstuvwxyz';
-  var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var upper = lower.toUpperCase = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
   var numbers = '0123456789';
   var symbols = '"#$%&\'()*+,-./:;<=>?@[]^_`{|}~\\';
-  var possible = '"#$%&\'()*+,-./:;<=>?@[]^_`{|}~\\ 0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  var possible = '';
   var password = '';
-  var wantsUpper = null
-  var wantsLower = null
-  var wantsNumbers = null
-  var wantsSymbols = null
-  var passwordLength = null; // need to get from prompt
-  var userInput = window.prompt('how many characters long (from 8-128) would you like your password to be?');
- console.log (userInput)
+
+var sequenceOptions = ["#$%&\'()*+,-./:;<=>?@[]^_`{|}~\\", "0123456789","ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz"]
+
+
+  var wantsUpper = null;
+  var wantsLower = null;
+  var wantsNumbers = null;
+  var wantsSymbols = null;
+  var passwordLength = ''; // need to get from prompt DONE
+  var userInput = parseInt(window.prompt('how many characters long (from 8-128) would you like your password to be?'));
+ console.log (userInput);
   if (!(userInput >= 8 && userInput <= 128)) {
     userInput = window.prompt('Please choose between 8-128.');
   } else { 
@@ -36,45 +40,42 @@ function generatePassword() {
   // THen use a for loop which will loop as many times are the length of the password
   // In each iteration, randomly select a letter from the array of characters
   // // Add that character to your password string
-  // var hasLower = confirm("has lowercase letter?");
-  // var hasUpper = confirm("has uppercase letters");
-  // var hasNumbers = confirm  ("has numbers?");
-  // var hasSymbols = confirm ("has symbols?");
-
-
-//   if ((wantsLower === true))
-//   {
-    
-//   }
-
-//   if(!(wantsUpper === true)
-//   possible - upper);
-
-//   if (!(wantsNumber === true)
-//   possible -Number);
-
-// if (!(wantSymbols === True);
-//   possible - symbols);
-
-
-
-  for (var i = 0; i < passwordLength; i++) {
-    var userInput = math.floor(math.random()* passwordLength);
-    password += possible.random( userInput, userInput + 1);
-    
-    
-  
-    // find random letter from possible
-    // append to the password string
-    
+ 
+  if (wantsLower) {
+    possible += lower;
   }
-  
-  debugger;
-  //randomly generated password will return below
-  return '';
+  console.log (wantsLower);
+
+  if (wantsUpper) {
+  possible += upper;
+  }
+  if (wantsNumbers) {
+    possible += numbers;
+  }
+if (wantsSymbols) {
+  possible += symbols;
 }
 
 
+
+  for (var i = 0; i < userInput; i++) {
+    // var userInput = math.floor(math.random()* passwordLength);
+    // password += possible.random( userInput, userInput + 1);
+    var random = Math.floor(Math.random() * possible.length);
+    console.log(random);
+    password += possible[random];
+  }
+  
+
+
+ // debugger;
+  //randomly generated password will return below
+  
+  return password;
+//
+
+
+}
 
 // Write password to the #password input
 function writePassword() {
