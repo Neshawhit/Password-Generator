@@ -6,7 +6,7 @@ function generatePassword() {
   //prompt user 'how many characters?' DONE
   //validate the user input
   // prompt the user for what set of characters they want
-  //validate the user selected at least one set of characters
+  //validate the user selected at least one set of charactersgit 
   //randomly generate password and then retrun generated password
   var lower = 'abcdefghijklmnopqrstuvwxyz';
   var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
